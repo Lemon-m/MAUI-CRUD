@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_CRUD.EditPage"
+             Title="EditPage"
+             Shell.NavBarIsVisible="False">
+    <Grid BackgroundColor="Black">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image
+            Source="background.jpg"
+            Aspect="AspectFill" 
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill" 
+            Opacity="0.85"/>
+
+        <Grid
+            RowDefinitions="Auto, *, *"
+            VerticalOptions="Fill"
+            Padding="10, 15">
+
+            <VerticalStackLayout Grid.Row="0">
+                <Button
+                    x:Name="BackToMainBtn"
+                    Command="{Binding BackToMainCommand}"
+                    Text="←" 
+                    FontSize="32"
+                    TextColor="White"
+                    BackgroundColor="HotPink"
+                    Padding="0, -6, 0, 0"
+                    MinimumHeightRequest="44"
+                    MinimumWidthRequest="44"
+                    MaximumHeightRequest="44"
+                    MaximumWidthRequest="44"
+                    HorizontalOptions="Start"
+                    TextTransform="None"/>
+                <Label 
+                    Text="{Binding Id, StringFormat='Edytowanie produktu (ID: {0})'}"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Margin="0, 40, 0, 20"
+                    FontSize="28"
+                    LineBreakMode="NoWrap"
+                    MaxLines="2" />
+            </VerticalStackLayout>
+
+            <Grid Padding="10"
+                Grid.Row="1"
+                VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label 
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Text="Nazwa: "
+                    FontSize="18"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="0, 0, 5, 0"/>
+                <Entry 
+                    VerticalOptions="Center"
+                    Placeholder="Wpisz nazwę"
+                    PlaceholderColor="LightGray"
+                    Text="{Binding Product.Name}"
+                    Grid.Column="1"
+                    Grid.Row="0"/>
+                <Label 
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Text="Kategoria: "
+                    FontSize="18"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Margin="0, 0, 5, 0"/>
+                <Entry 
+                    VerticalOptions="Center"
+                    Placeholder="Wpisz kategorię"
+                    PlaceholderColor="LightGray"
+                    Text="{Binding Product.Category}"
+                    Grid.Column="1"
+                    Grid.Row="1"/>
+                <Label 
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Text="Cena: "
+                    FontSize="18"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Margin="0, 0, 5, 0"/>
+                <Entry 
+                    VerticalOptions="Center"
+                    Placeholder="Wpisz cenę"
+                    PlaceholderColor="LightGray"
+                    Keyboard="Numeric"
+                    Text="{Binding Product.Price}"
+                    Unfocused="PriceEntry_Unfocused"
+                    Grid.Column="1"
+                    Grid.Row="2"/>
+            </Grid>
+
+            <Button
+                x:Name="EditProductBtn"
+                Command="{Binding EditProductCommand}"
+                Grid.Row="2"
+                Text="Edytuj produkt"
+                TextColor="White"
+                BackgroundColor="HotPink"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+
+        </Grid>
+    </Grid>
+</ContentPage>
