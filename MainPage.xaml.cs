@@ -12,6 +12,8 @@ namespace MAUI_CRUD
         {
             InitializeComponent();
 
+            vm.AlertOverlay = AlertOverlay;
+
             BindingContext = vm;
         }
 

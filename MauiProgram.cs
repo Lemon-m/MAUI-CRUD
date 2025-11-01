@@ -1,6 +1,9 @@
 ﻿using CommunityToolkit.Maui;
 using CRUD;
 using MAUI_CRUD.ViewModels;
+#if ANDROID
+using MAUI_CRUD.Platforms.Android.Handlers;
+#endif
 using Microsoft.Extensions.Logging;
 using System.Collections.ObjectModel;
 
@@ -18,6 +21,12 @@ namespace MAUI_CRUD
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                })
+                .ConfigureMauiHandlers(handlers =>
+                {
+                    #if ANDROID
+                    handlers.AddHandler(typeof(Button), typeof(RippleButtonHandler));
+                    #endif
                 });
 
             builder.Services.AddSingleton<ObservableCollection<Product>>();

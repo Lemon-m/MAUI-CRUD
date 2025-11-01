@@ -42,6 +42,7 @@ namespace MAUI_CRUD
                     Category = ogProduct.Category,
                     CreationDate = ogProduct.CreationDate
                 };
+                Product.productCount--;
             }
         }
 

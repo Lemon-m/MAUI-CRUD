@@ -5,124 +5,147 @@
              x:Class="MAUI_CRUD.MainPage"
              x:Name="MainPageRef"
              Shell.NavBarIsVisible="False">
-
-    <Grid BackgroundColor="Black">
+    <Grid x:Name="RootLayout">
+        <Grid BackgroundColor="Black">
         
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
         
-        <Image
-            Source="background.jpg"
-            Aspect="AspectFill" 
-            HorizontalOptions="Fill"
-            VerticalOptions="Fill" 
-            Opacity="0.85"/>
+            <Image
+                Source="background.jpg"
+                Aspect="AspectFill" 
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill" 
+                Opacity="0.85"/>
 
-        <ScrollView
-            HorizontalOptions="Fill"
-            VerticalOptions="Fill">
-            <VerticalStackLayout
-                Spacing="25"
-                Padding="10">
-                <Grid HorizontalOptions="Fill" VerticalOptions="Start" Margin="0, 5, 0, 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Button
-                        Grid.Column="0"
-                        x:Name="AddBtn"
-                        Text="+" 
-                        Padding="0, -2, 0, 0"
-                        FontSize="32"
-                        TextColor="White"
-                        BackgroundColor="HotPink"
-                        MinimumHeightRequest="45"
-                        MinimumWidthRequest="45"
-                        MaximumHeightRequest="44"
-                        MaximumWidthRequest="44"
-                        Command="{Binding EnterAddPageCommand}"
-                        HorizontalOptions="Start" />
-                    <Button
-                        Grid.Column="2"
-                        x:Name="ExportBtn"
-                        Command="{Binding ExportCSVCommand}"
-                        Text="CSV Export"
-                        FontAttributes="Bold"
-                        TextColor="White"
-                        BackgroundColor="HotPink"
-                        HorizontalOptions="End" />
-                </Grid>
-                <Label
-                    Text="Produkty"
-                    HorizontalOptions="Center"
-                    FontSize="32"/>
-                <CollectionView
-                        x:Name="ProductList"
-                        ItemsSource="{Binding Products}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Border
-                                StrokeShape="RoundRectangle 12"
-                                StrokeThickness="2"
-                                Stroke="HotPink"
-                                Padding="10"
-                                Margin="10"
-                                Background="Pink">
+            <ScrollView
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+                <VerticalStackLayout
+                    Spacing="25"
+                    Padding="10">
+                    <Grid HorizontalOptions="Fill" VerticalOptions="Start" Margin="0, 5, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            x:Name="AddBtn"
+                            Text="+" 
+                            Padding="0, -2, 0, 0"
+                            FontSize="32"
+                            TextColor="White"
+                            BackgroundColor="HotPink"
+                            MinimumHeightRequest="44"
+                            MinimumWidthRequest="44"
+                            MaximumHeightRequest="44"
+                            MaximumWidthRequest="44"
+                            Command="{Binding EnterAddPageCommand}"
+                            HorizontalOptions="Start" />
+                        <Button
+                            Grid.Column="2"
+                            x:Name="ExportBtn"
+                            Command="{Binding ExportCSVCommand}"
+                            Text="CSV Export"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            BackgroundColor="HotPink"
+                            HorizontalOptions="End" />
+                    </Grid>
+                    <Label
+                        Text="Produkty"
+                        HorizontalOptions="Center"
+                        InputTransparent="False"
+                        FontSize="32">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LeSecretCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <CollectionView
+                            x:Name="ProductList"
+                            ItemsSource="{Binding Products}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    StrokeShape="RoundRectangle 12"
+                                    StrokeThickness="2"
+                                    Stroke="HotPink"
+                                    Padding="10"
+                                    Margin="10"
+                                    Background="Pink">
 
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <VerticalStackLayout
-                                        Margin="10"
-                                        Padding="10"
-                                        Grid.Column="0">
-                                        <Label
-                                            Text="{Binding Id, StringFormat='ID: {0}'}"
-                                            FontSize="10"
-                                            TextColor="Gray"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <VerticalStackLayout
+                                            Margin="10"
+                                            Padding="10"
+                                            Grid.Column="0">
+                                            <Label
+                                                Text="{Binding Id, StringFormat='ID: {0}'}"
+                                                FontSize="10"
+                                                TextColor="Gray"/>
 
-                                        <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
-                                        <Label Text="{Binding Price, StringFormat='Price: {0:C}'}"/>
-                                        <Label Text="{Binding Category, StringFormat='Category: {0}'}"/>
-                                        <Label Text="{Binding CreationDate, StringFormat='Creation date: {0}'}"/>
-                                    </VerticalStackLayout>
-                                    <VerticalStackLayout 
-                                            Grid.Column="1"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Center"
-                                            Spacing="5">
-                                        <Button
-                                            x:Name="EditBtn"
-                                            Command="{Binding Source={x:Reference MainPageRef}, Path=BindingContext.EnterEditPageCommand}"
-                                            CommandParameter="{Binding Id}" 
-                                            Text="Edytuj"
-                                            TextColor="White"
-                                            BackgroundColor="#416DE5"
-                                            HorizontalOptions="Fill" />
-                                        <Button
-                                            x:Name="DelBtn"
-                                            Command="{Binding Source={x:Reference MainPageRef}, Path=BindingContext.DeleteProductCommand}"
-                                            CommandParameter="{Binding Id}" 
-                                            Text="Usuń"
-                                            TextColor="White"
-                                            BackgroundColor="#D21F3C"
-                                            HorizontalOptions="Fill" />
-                                    </VerticalStackLayout>
-                                </Grid>
+                                            <Label Text="{Binding Name, StringFormat='Nazwa: {0}'}"/>
+                                            <Label Text="{Binding Price, StringFormat='Cena: {0:C}'}"/>
+                                            <Label Text="{Binding Category, StringFormat='Kategoria: {0}'}"/>
+                                            <Label Text="{Binding CreationDate, StringFormat='Data utworzenia: {0}'}"/>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout 
+                                                Grid.Column="1"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"
+                                                Spacing="5">
+                                            <Button
+                                                x:Name="EditBtn"
+                                                Command="{Binding Source={x:Reference MainPageRef}, Path=BindingContext.EnterEditPageCommand}"
+                                                CommandParameter="{Binding Id}" 
+                                                Text="Edytuj"
+                                                TextColor="White"
+                                                BackgroundColor="#416DE5"
+                                                HorizontalOptions="Fill" />
+                                            <Button
+                                                x:Name="DelBtn"
+                                                Command="{Binding Source={x:Reference MainPageRef}, Path=BindingContext.DeleteProductCommand}"
+                                                CommandParameter="{Binding Id}" 
+                                                Text="Usuń"
+                                                TextColor="White"
+                                                BackgroundColor="#D21F3C"
+                                                HorizontalOptions="Fill" />
+                                        </VerticalStackLayout>
+                                    </Grid>
 
 
-                            </Border>
+                                </Border>
 
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </VerticalStackLayout>
-        </ScrollView>
-    </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </ScrollView>
+            <Button 
+                ImageSource="adi.png"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="15"
+                Padding="0"
+                HeightRequest="80"
+                WidthRequest="80"
+                CornerRadius="15"
+                BackgroundColor="Transparent"
+                Command="{Binding SecretCommand}"
+                Opacity="{Binding LeSecretOpacity}"
+                IsVisible="{Binding LeSecretVisible}"/>
+        </Grid>
 
+        <Grid x:Name="AlertOverlay"
+              IsVisible="False"
+              BackgroundColor="#80000000"/>
+            
+        </Grid>
 </ContentPage>

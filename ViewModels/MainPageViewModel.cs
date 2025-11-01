@@ -1,9 +1,11 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using CRUD;
-using System.Collections.ObjectModel;
+﻿using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CRUD;
+using MAUI_CRUD.Popups;
+using System.Collections.ObjectModel;
 
 
 namespace MAUI_CRUD.ViewModels
@@ -15,9 +17,18 @@ namespace MAUI_CRUD.ViewModels
         [ObservableProperty]
         private ObservableCollection<Product> products;
 
-        public MainPageViewModel(ObservableCollection<Product> products)
+        [ObservableProperty]
+        private bool leSecretVisible;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+        private int leSecretCounter;
+
+        public Grid AlertOverlay { get; set; }
+
+        public MainPageViewModel(ObservableCollection<Product> products, IPopupService PopupService)
         {
             dataLoaded = false;
+            LeSecretVisible = false;
+            leSecretCounter = 0;
             this.products = products;
         }
         public void OnPageAppearing()
@@ -32,7 +43,7 @@ namespace MAUI_CRUD.ViewModels
 
                 if (lines.Length > 1)
                 {
-                    int lastID = 0;
+                    int lastID = 1;
 
                     for (int i = 1; i < lines.Length; i++)
                     {
@@ -109,6 +120,27 @@ namespace MAUI_CRUD.ViewModels
             }
             var toast = Toast.Make("Wyeksportowano produkty!", ToastDuration.Short, 14);
             await toast.Show();
+        }
+
+        [RelayCommand]
+        async Task LeSecret()
+        {
+            leSecretCounter++;
+            if(leSecretCounter == 5)
+            {
+                LeSecretVisible = true;
+                var toast = Toast.Make("Komunis", ToastDuration.Short, 14);
+                await toast.Show();
+            }
+        }
+
+        [RelayCommand]
+        async Task Secret()
+        {
+            await MainThread.InvokeOnMainThreadAsync(async () =>
+            {
+                SystemStyleAlertView.Show(AlertOverlay, "Adrian", "explain our friend group", "zandbi.jpg");
+            });
         }
     }
 }
