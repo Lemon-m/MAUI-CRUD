@@ -89,7 +89,6 @@ public class SystemStyleAlertView : ContentView
         base.OnParentSet();
         if (Parent != null)
         {
-            await Task.Delay(20);
             await Task.WhenAll(this.FadeTo(1, 150, Easing.CubicIn), alertStack.FadeTo(1, 150, Easing.CubicIn));
         }
     }
