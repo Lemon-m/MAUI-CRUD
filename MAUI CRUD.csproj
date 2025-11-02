@@ -51,7 +51,7 @@
 	  <AndroidSigningKeyAlias>mauicrudkey</AndroidSigningKeyAlias>
 	  <AndroidSigningStorePass>[REDACTED]</AndroidSigningStorePass>
 	  <AndroidSigningKeyPass>[REDACTED]</AndroidSigningKeyPass>
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|ARM64'">
@@ -62,7 +62,7 @@
 	  <AndroidSigningKeyAlias>mauicrudkey</AndroidSigningKeyAlias>
 	  <AndroidSigningStorePass>[REDACTED]</AndroidSigningStorePass>
 	  <AndroidSigningKeyPass>[REDACTED]</AndroidSigningKeyPass>
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
@@ -70,7 +70,7 @@
 	  <AndroidSigningKeyAlias>mauicrudkey</AndroidSigningKeyAlias>
 	  <AndroidSigningStorePass>[REDACTED]</AndroidSigningStorePass>
 	  <AndroidSigningKeyPass>[REDACTED]</AndroidSigningKeyPass>
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|ARM64'">
@@ -78,55 +78,55 @@
 	  <AndroidSigningKeyAlias>mauicrudkey</AndroidSigningKeyAlias>
 	  <AndroidSigningStorePass>[REDACTED]</AndroidSigningStorePass>
 	  <AndroidSigningKeyPass>[REDACTED]</AndroidSigningKeyPass>
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-maccatalyst|AnyCPU'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows10.0.19041.0|AnyCPU'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|ARM64'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-maccatalyst|ARM64'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows10.0.19041.0|ARM64'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|AnyCPU'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-maccatalyst|AnyCPU'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows10.0.19041.0|AnyCPU'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|ARM64'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-maccatalyst|ARM64'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows10.0.19041.0|ARM64'">
-	  <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
+	  <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

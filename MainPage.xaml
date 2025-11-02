@@ -146,8 +146,7 @@
         <Grid
             x:Name="AlertOverlay"
             IsVisible="False"
-            BackgroundColor="#80000000"
-            InputTransparent="False"
+            BackgroundColor="#40000000"
             ZIndex="9999"/>
 
     </Grid>

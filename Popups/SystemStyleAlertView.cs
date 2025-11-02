@@ -2,17 +2,20 @@
 
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Layouts;
 
 namespace MAUI_CRUD.Popups;
 public class SystemStyleAlertView : ContentView
 {
+    private readonly VerticalStackLayout alertStack;
 
     public SystemStyleAlertView(string header, string message, string? imageSource = null)
     {
+        InputTransparent = false;
+        IsVisible = true;
+        Opacity = 0;
 
-        BackgroundColor = Color.FromArgb("#80000000");
-
-        var alertStack = new VerticalStackLayout
+        alertStack = new VerticalStackLayout
         {
             BackgroundColor = Application.Current.RequestedTheme == AppTheme.Dark ? Color.FromArgb("#FF424242") : Colors.White,
             WidthRequest = 300,
@@ -63,7 +66,11 @@ public class SystemStyleAlertView : ContentView
 
         okButton.Clicked += async (_, __) =>
         {
-            await alertStack.FadeTo(0, 100);
+            await Task.WhenAll(
+                this.FadeTo(0, 150, Easing.CubicIn),
+                alertStack.FadeTo(0, 150, Easing.CubicIn)
+            );
+
             if (Parent is Grid parentGrid)
             {
                 parentGrid.Children.Clear();
@@ -75,10 +82,18 @@ public class SystemStyleAlertView : ContentView
 
         Content = alertStack;
 
-        alertStack.FadeTo(1, 100);
     }
 
-    
+    protected override async void OnParentSet()
+    {
+        base.OnParentSet();
+        if (Parent != null)
+        {
+            await Task.Delay(20);
+            await Task.WhenAll(this.FadeTo(1, 150, Easing.CubicIn), alertStack.FadeTo(1, 150, Easing.CubicIn));
+        }
+    }
+
 
     public static void Show(Grid overlayGrid, string header, string message, string? imageSource = null)
     {
