@@ -140,6 +140,7 @@ namespace MAUI_CRUD.ViewModels
             await MainThread.InvokeOnMainThreadAsync(async () =>
             {
                 SystemStyleAlertView.Show(AlertOverlay, "Adrian", "explain our friend group", "zandbi.jpg");
+                //await Application.Current.MainPage.DisplayAlert("Alert", "You have been alerted", "OK");
             });
         }
     }

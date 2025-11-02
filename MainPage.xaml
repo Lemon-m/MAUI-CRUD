@@ -143,9 +143,12 @@
                 IsVisible="{Binding LeSecretVisible}"/>
         </Grid>
 
-        <Grid x:Name="AlertOverlay"
-              IsVisible="False"
-              BackgroundColor="#80000000"/>
-            
-        </Grid>
+        <Grid
+            x:Name="AlertOverlay"
+            IsVisible="False"
+            BackgroundColor="#80000000"
+            InputTransparent="False"
+            ZIndex="9999"/>
+
+    </Grid>
 </ContentPage>
