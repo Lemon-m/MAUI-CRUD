@@ -37,6 +37,7 @@ namespace MAUI_CRUD
                 Product = new Product
                 {
                     Id = ogProduct.Id,
+                    LocalId = ogProduct.LocalId,
                     Name = ogProduct.Name,
                     Price = ogProduct.Price,
                     Category = ogProduct.Category,

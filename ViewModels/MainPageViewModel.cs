@@ -63,6 +63,7 @@ namespace MAUI_CRUD.ViewModels
                             new Product
                             {
                                 Id = id,
+                                LocalId = id,
                                 Name = cols[1],
                                 Price = priceCSVTemp,
                                 Category = cols[3],

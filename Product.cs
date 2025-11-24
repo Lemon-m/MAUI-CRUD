@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using SQLite;
 
 namespace CRUD
 {
@@ -6,9 +7,11 @@ namespace CRUD
     {
         static public int productCount;
 
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
 
         [ObservableProperty]
-        private int id;
+        private int localId;
 
         [ObservableProperty]
         private string name;
@@ -25,7 +28,7 @@ namespace CRUD
         public Product()
         {
             productCount++;
-            id = productCount;
+            localId = productCount;
             name = "";
             price = 0;
             category = "";
@@ -35,7 +38,7 @@ namespace CRUD
         public Product(string NameInp, double priceInp, string CatInp)
         {
             productCount++;
-            id = productCount;
+            localId = productCount;
             name = NameInp;
             price = priceInp;
             category = CatInp;
